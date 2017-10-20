@@ -14,6 +14,8 @@ if ENV["PLAYLISTER_ENV"] == "test"
   ActiveRecord::Migration.verbose = false
 end
 
+ActiveRecord::Base.logger = nil
+
 def migrate_db
   DB.tables.each do |table|
     DB.execute("DROP TABLE #{table}")
